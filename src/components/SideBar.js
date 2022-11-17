@@ -2,7 +2,7 @@ import Sugestoes from "./Sugestoes";
 import Usuario from "./Usuario";
 
 export default function SideBar() {
-    // const list = [];
+    
   return (
     <div class="sidebar">
       <Usuario />

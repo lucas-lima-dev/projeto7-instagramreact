@@ -1,4 +1,6 @@
 export default function Sugestoes() {
+    // const list = []
+
   return (
     <div class="sugestoes">
       <div class="titulo">
