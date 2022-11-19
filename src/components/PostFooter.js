@@ -2,16 +2,23 @@ import { useState } from "react";
 
 export default function PostFooter() {
   const [heartColor,setHeartColor] = useState("");
+  const [heartIcon,setHeartIcon] = useState("heart-outline")
   
   const [savePost,setSavePost] = useState("bookmark-outline")
+   
+  const changeHeartIcon = () => {
+    setHeartColor("red")
+    setHeartIcon("heart")
+  }
   return (
     <div className="fundo">
       <div className="acoes">
         <div>
         <ion-icon
-      onClick = {()=>setHeartColor("red")}
+      onClick = {()=>changeHeartIcon()}
+    
       style= {{color: heartColor}}
-      name="heart-outline"
+      name={heartIcon}
       data-test="like-post"
     ></ion-icon>
           <ion-icon name="chatbubble-outline"></ion-icon>
