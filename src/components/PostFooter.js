@@ -5,10 +5,20 @@ export default function PostFooter() {
   const [heartIcon,setHeartIcon] = useState("heart-outline")
   
   const [savePost,setSavePost] = useState("bookmark-outline")
+
+  const [likesNumber,setLikesNumber] = useState(101.523)
    
   const changeHeartIcon = () => {
-    setHeartColor("red")
-    setHeartIcon("heart")
+    if(heartColor === "" && heartIcon === "heart-outline") {
+        setHeartColor("red")
+        setHeartIcon("heart")
+        setLikesNumber(likesNumber+1)
+    } else {
+        setHeartColor("")
+        setHeartIcon("heart-outline")
+        setLikesNumber(likesNumber-1)
+    }
+    
   }
   return (
     <div className="fundo">
@@ -16,7 +26,6 @@ export default function PostFooter() {
         <div>
         <ion-icon
       onClick = {()=>changeHeartIcon()}
-    
       style= {{color: heartColor}}
       name={heartIcon}
       data-test="like-post"
@@ -33,7 +42,7 @@ export default function PostFooter() {
         <img src="assets/img/respondeai.svg" alt="" />
         <div className="texto">
           Curtido por <strong>respondeai</strong> e{" "}
-          <strong data-test="likes-number">outras 101.523 pessoas</strong>
+          <strong data-test="likes-number">outras {likesNumber} pessoas</strong>
         </div>
       </div>
     </div>
