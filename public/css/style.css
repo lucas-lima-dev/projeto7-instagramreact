@@ -195,6 +195,10 @@ body {
   margin-right: 6px;
 }
 
+.post .fundo .acoes div:first-child ion-icon .activeHeart {
+  color: red;
+}
+
 .post .fundo .curtidas {
   display: flex;
   align-items: center;
