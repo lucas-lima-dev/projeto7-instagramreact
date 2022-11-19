@@ -1,14 +1,19 @@
+import { useState } from "react"
+
 export default function Usuario() {
-    let  nome = ""//prompt("Qual é o seu nome?")
-    let img = "assets/img/catanacomics.svg" // prompt("Insira a URL de uma imagem:")
+    let img = "assets/img/catanacomics.svg"
+    const [nome,setNome] = useState("Catana") 
+    const [imagem,setImagem] = useState(img)
+
+     // 
     return (
-        <div class="usuario" data-test="user">
-        <img src={img} data-test="profile-image" />
-        <div class="texto">
-          <strong>{!nome ? "Lucas" : "cat"}</strong>
+        <div className="usuario" data-test="user">
+        <img onClick = {()=>setImagem(prompt("Insira a URL de uma imagem:"))}src={!imagem ? img : imagem} data-test="profile-image" alt ="" />
+        <div className="texto">
+          <strong>catanacomics</strong>
           <span data-test="name">
-            Catana
-            <ion-icon name="pencil" data-test="edit-name"></ion-icon>
+            {!nome ? "Sem nome" : nome}
+            <ion-icon onClick = {()=>setNome(prompt("Qual é o seu nome?"))} name="pencil" data-test="edit-name"></ion-icon>
           </span>
         </div>
       </div>

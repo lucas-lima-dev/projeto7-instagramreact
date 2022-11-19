@@ -5,15 +5,15 @@ export default function Posts() {
   ]
 
   return (
-    <div class="posts">
-      {post.map((p) => <Post uImg = {p.userImage} uName = {p.userName} pImg={p.postImg}/>)}
+    <div className="posts">
+      {post.map((p) => <Post key={p.userName} uImg = {p.userImage} uName = {p.userName} pImg={p.postImg}/>)}
     </div>
   );
 }
 
 function Post(props) {
   return (
-    <div class="post" data-test="post">
+    <div className="post" data-test="post">
         <PostHeader uImg = {props.uImg} uName = {props.uName}/>
 
         <PostImg pImg = {props.pImg}/>
@@ -25,12 +25,12 @@ function Post(props) {
 
 function PostHeader(props) {
   return (
-    <div class="topo">
-      <div class="usuario">
-        <img src={props.uImg} />
+    <div className="topo">
+      <div className="usuario">
+        <img src={props.uImg} alt ="" />
         {props.uName}
       </div>
-      <div class="acoes">
+      <div className="acoes">
         <ion-icon name="ellipsis-horizontal"></ion-icon>
       </div>
     </div>
@@ -39,16 +39,16 @@ function PostHeader(props) {
 
 function PostImg(props) {
   return (
-    <div class="conteudo">
-      <img src={props.pImg} data-test="post-image" />
+    <div className="conteudo">
+      <img src={props.pImg} data-test="post-image" alt =""/>
     </div>
   );
 }
 
 function PostFooter() {
   return (
-    <div class="fundo">
-          <div class="acoes">
+    <div className="fundo">
+          <div className="acoes">
             <div>
               <ion-icon name="heart-outline" data-test="like-post"></ion-icon>
               <ion-icon name="chatbubble-outline"></ion-icon>
@@ -62,9 +62,9 @@ function PostFooter() {
             </div>
           </div>
 
-          <div class="curtidas">
-            <img src="assets/img/respondeai.svg" />
-            <div class="texto">
+          <div className="curtidas">
+            <img src="assets/img/respondeai.svg" alt =""/>
+            <div className="texto">
               Curtido por <strong>respondeai</strong> e{" "}
               <strong data-test="likes-number">outras 101.523 pessoas</strong>
             </div>

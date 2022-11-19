@@ -28,28 +28,28 @@ export default function Sugestoes() {
   ];
 
   return (
-    <div class="sugestoes">
-      <div class="titulo">
+    <div className="sugestoes">
+      <div className="titulo">
         Sugestões para você
         <div>Ver tudo</div>
       </div>
-      {sugestao.map((s) => <Sugestao uImg={s.userImg} uName = {s.userName} razao = {s.razao} />)}
+      {sugestao.map((s) => <Sugestao key={s.userName} uImg={s.userImg} uName = {s.userName} razao = {s.razao} />)}
     </div>
   );
 }
 
 function Sugestao(props) {
   return (
-    <div class="sugestao">
-      <div class="usuario">
-        <img src={props.uImg} />
-        <div class="texto">
-          <div class="nome">{props.uName}</div>
-          <div class="razao">{props.razao}</div>
+    <div className="sugestao">
+      <div className="usuario">
+        <img src={props.uImg} alt ="" />
+        <div className="texto">
+          <div className="nome">{props.uName}</div>
+          <div className="razao">{props.razao}</div>
         </div>
       </div>
 
-      <div class="seguir">Seguir</div>
+      <div className="seguir">Seguir</div>
     </div>
   );
 }
