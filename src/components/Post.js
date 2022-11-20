@@ -8,7 +8,7 @@ export default function PostFooter(props) {
 
   const [likesNumber, setLikesNumber] = useState(101523);
 
-  const changeHeartIcon = () => {
+  const clickHeartIcon = () => {
     if (heartColor === "" && heartIcon === "heart-outline") {
       setHeartColor("red");
       setHeartIcon("heart");
@@ -19,6 +19,24 @@ export default function PostFooter(props) {
       setLikesNumber(likesNumber - 1);
     }
   };
+
+  const clickImgPost = () => {
+    if (heartColor === "" && heartIcon === "heart-outline") {
+      setHeartColor("red");
+      setHeartIcon("heart");
+      setLikesNumber(likesNumber + 1);
+    } 
+  };
+
+  const changeSaveIcon = () => {
+    if (savePost === "bookmark-outline") {
+      setSavePost("bookmark");
+    } else {
+      setSavePost("bookmark-outline");
+    }
+  };
+
+
   return (
     <div className="post" data-test="post">
       <div className="topo">
@@ -32,7 +50,7 @@ export default function PostFooter(props) {
       </div>
       <div className="conteudo">
         <img
-          onClick={() => changeHeartIcon()}
+          onClick={() => clickImgPost()}
           style={{ color: heartColor }}
           name={heartIcon}
           src={props.pImg}
@@ -44,7 +62,7 @@ export default function PostFooter(props) {
         <div className="acoes">
           <div>
             <ion-icon
-              onClick={() => changeHeartIcon()}
+              onClick={() => clickHeartIcon()}
               style={{ color: heartColor }}
               name={heartIcon}
               data-test="like-post"
@@ -54,7 +72,7 @@ export default function PostFooter(props) {
           </div>
           <div>
             <ion-icon
-              onClick={() => setSavePost("bookmark")}
+              onClick={() => changeSaveIcon()}
               name={savePost}
               data-test="save-post"
             ></ion-icon>
