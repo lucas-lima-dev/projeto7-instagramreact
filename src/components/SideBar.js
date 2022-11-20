@@ -2,10 +2,11 @@ import Sugestoes from "./Sugestoes";
 import Usuario from "./Usuario";
 
 export default function SideBar() {
+   const user = [{userImage: "assets/img/catanacomics.svg", userName: "Catana", pageName:"catanacomics"}]
     
   return (
     <div className="sidebar">
-      <Usuario />
+      {user.map((u) => <Usuario key={u.userName} uName = {u.userName} uImg = {u.userImage} pName = {u.pageName}/>)}
 
       <Sugestoes />
 
